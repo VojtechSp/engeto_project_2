@@ -15,9 +15,14 @@ def privitani():
 
 
 def generovat_cislo():
-    generovane_cislo = random.randint(1111, 9999)
+    generovane_cislo = []
+    while len(generovane_cislo) < 4:
+        temp = str(random.randint(0, 9))
+        if temp not in generovane_cislo:
+            generovane_cislo.append(temp)
+
     #print(generovane_cislo)
-    return generovane_cislo
+    return "".join(generovane_cislo)
 
 
 
