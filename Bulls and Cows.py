@@ -18,10 +18,10 @@ def generovat_cislo():
     generovane_cislo = []
     while len(generovane_cislo) < 4:
         temp = str(random.randint(0, 9))
-        if temp not in generovane_cislo:
+        if temp not in generovane_cislo and int(temp) != 0:
             generovane_cislo.append(temp)
 
-    #print(generovane_cislo)
+    print(generovane_cislo)
     return "".join(generovane_cislo)
 
 
@@ -46,8 +46,7 @@ def hra(cislo):
                     if u_cislo[cifra] == cislo[cifra]:
                         bulls += 1
                 for cifra in range(4):
-                    if u_cislo[cifra] in cislo and \
-                            u_cislo[cifra] != cislo[cifra]:
+                    if u_cislo[cifra] in cislo and u_cislo[cifra] != cislo[cifra]:
                         cows += 1
                 print(f"{bulls} bulls, {cows} cows")
                 pokusy += 1
