@@ -51,8 +51,8 @@ def hra(cislo):
         if u_cislo.isnumeric() and u_cislo.startswith("0") == False:
             if u_cislo == cislo:
                 print(f"Correct, you've guessed the right number\n"
-                    f"in {pokusy} guesses!\n"
-                    f"{predel}")
+                        f"in {pokusy} guesses!\n"
+                        f"{predel}")
                 vyhra = True
             else:
                 bulls = 0
