@@ -21,7 +21,7 @@ def generovat_cislo():
         if temp not in generovane_cislo and int(temp) != 0:
             generovane_cislo.append(temp)
 
-    print(generovane_cislo)
+    #print(generovane_cislo)
     return "".join(generovane_cislo)
 
 
