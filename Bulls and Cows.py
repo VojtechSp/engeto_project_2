@@ -33,11 +33,26 @@ def hra(cislo):
     cislo = str(cislo)
     while vyhra == False:
         u_cislo = input()
+        check = True
+        if len(u_cislo) > 4:
+            print("Number input is too long!")
+            break
+        if len(u_cislo) < 4:
+            print("Number input is too short!")
+            break
+        pocet_opakujicich_cisel = 0
+        for cislo_1 in range(0,3):
+            for cislo_2 in range(0,3):
+                if u_cislo[cislo_1] == u_cislo[cislo_2]:
+                    pocet_opakujicich_cisel += 1
+        if pocet_opakujicich_cisel > 1:
+            print("There are repeating numbers in your input!")
+            break
         if u_cislo.isnumeric() and u_cislo.startswith("0") == False:
             if u_cislo == cislo:
                 print(f"Correct, you've guessed the right number\n"
-                      f"in {pokusy} guesses!\n"
-                      f"{predel}")
+                    f"in {pokusy} guesses!\n"
+                    f"{predel}")
                 vyhra = True
             else:
                 bulls = 0
