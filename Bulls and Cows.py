@@ -67,9 +67,10 @@ def hra(cislo):
                     print(f"{bulls} bulls, {cows} cows")
                     pokusy += 1
                     print(predel)
+                    break
             else:
                 print("Please input a number that doesn't start with a 0!")
-
+                vyhra = True
 
 
 def main():
