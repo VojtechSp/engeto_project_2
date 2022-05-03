@@ -2,6 +2,7 @@ import random
 
 predel = "-" * 50
 
+
 def privitani():
     predel = "-" * 50
     print(f"Hi there!\n"
