@@ -29,19 +29,24 @@ def zkontrolovat_cislo(cislo : str):
                         continue
                     else:
                         print("There are repeating numbers in your input!")
+                        print(predel)
                         return False
                 return True
             elif len(cislo) < 4:
                 print("Number input is too short!")
+                print(predel)
                 return False
             else:
                 print("Number input is too long!")
+                print(predel)
                 return False
         else:
             print("Please input a number that doesn't start with a 0!")
+            print(predel)
             return False
     else:
         print("input a NUMBER!")
+        print(predel)
         return False
 
 def hra(cislo):
@@ -66,9 +71,8 @@ def hra(cislo):
                 for cifra in range(4):
                     if u_cislo[cifra] in cislo and u_cislo[cifra] != cislo[cifra]:
                         cows += 1
-                print(f"{bulls} bulls, {cows} cows")
+                print(f"{bulls} bulls, {cows} cows \n{predel}")
                 pokusy += 1
-                print(predel)
 
 def main():
     privitani()
