@@ -1,6 +1,6 @@
 import random
 
-
+predel = "-" * 50
 
 def privitani():
     predel = "-" * 50
@@ -24,53 +24,57 @@ def generovat_cislo():
     #print(generovane_cislo)
     return "".join(generovane_cislo)
 
+def zkontrolovat_cislo(cislo : str):
+    if cislo.isnumeric():
+        if not cislo.startswith('0'):
+            if len(cislo) == 4:
+                for x in cislo:
+                    if cislo.count(x) == 1:
+                        continue
+                    else:
+                        print("There are repeating numbers in your input!")
+                        return False
+                return True
+            elif len(cislo) < 4:
+                print("Number input is too short!")
+                return False
+            else:
+                print("Number input is too long!")
+                return False
+        else:
+            print("Please input a number that doesn't start with a 0!")
+            return False
+    else:
+        print("input a NUMBER!")
+        return False
+
 
 
 def hra(cislo):
-    predel = "-" * 50
     vyhra = False
     pokusy = 1
     cislo = str(cislo)
     while vyhra == False:
         u_cislo = input()
-        if len(u_cislo) > 4:
-            print("Number input is too long!")
-            break
-        if len(u_cislo) < 4:
-            print("Number input is too short!")
-            break
-        pocet_opakujicich_cisel = 0
-        for cislo_1 in range(0,3):
-            if pocet_opakujicich_cisel > 2:
-                print("There are repeating numbers in your input!")
+        kontrola = zkontrolovat_cislo(u_cislo)
+        if kontrola:
+            if u_cislo == cislo:
+                print(f"Correct, you've guessed the right number\n"
+                        f"in {pokusy} guesses!\n"
+                        f"{predel}")
                 vyhra = True
-                break
-            for cislo_2 in range(0,3):
-                if u_cislo[cislo_1] == u_cislo[cislo_2]:
-                    pocet_opakujicich_cisel += 1
-        while vyhra == False:
-            if u_cislo.isnumeric() and u_cislo.startswith("0") == False:
-                if u_cislo == cislo:
-                    print(f"Correct, you've guessed the right number\n"
-                            f"in {pokusy} guesses!\n"
-                            f"{predel}")
-                    vyhra = True
-                else:
-                    bulls = 0
-                    cows = 0
-                    for cifra in range(4):
-                        if u_cislo[cifra] == cislo[cifra]:
-                            bulls += 1
-                    for cifra in range(4):
-                        if u_cislo[cifra] in cislo and u_cislo[cifra] != cislo[cifra]:
-                            cows += 1
-                    print(f"{bulls} bulls, {cows} cows")
-                    pokusy += 1
-                    print(predel)
-                    break
             else:
-                print("Please input a number that doesn't start with a 0!")
-                vyhra = True
+                bulls = 0
+                cows = 0
+                for cifra in range(4):
+                    if u_cislo[cifra] == cislo[cifra]:
+                        bulls += 1
+                for cifra in range(4):
+                    if u_cislo[cifra] in cislo and u_cislo[cifra] != cislo[cifra]:
+                        cows += 1
+                print(f"{bulls} bulls, {cows} cows")
+                pokusy += 1
+                print(predel)
 
 
 def main():
