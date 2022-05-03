@@ -12,16 +12,12 @@ def privitani():
           f"Enter a number:\n"
           f"{predel}")
 
-
-
 def generovat_cislo():
     generovane_cislo = []
     while len(generovane_cislo) < 4:
         temp = str(random.randint(0, 9))
         if temp not in generovane_cislo and int(temp) != 0:
             generovane_cislo.append(temp)
-
-    #print(generovane_cislo)
     return "".join(generovane_cislo)
 
 def zkontrolovat_cislo(cislo : str):
@@ -47,8 +43,6 @@ def zkontrolovat_cislo(cislo : str):
     else:
         print("input a NUMBER!")
         return False
-
-
 
 def hra(cislo):
     vyhra = False
@@ -80,7 +74,5 @@ def main():
     privitani()
     cislo = generovat_cislo()
     hra(cislo)
-
-
 
 main()
