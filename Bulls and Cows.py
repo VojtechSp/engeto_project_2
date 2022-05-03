@@ -76,7 +76,6 @@ def hra(cislo):
                 pokusy += 1
                 print(predel)
 
-
 def main():
     privitani()
     cislo = generovat_cislo()
